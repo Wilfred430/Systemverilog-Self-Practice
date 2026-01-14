@@ -1,0 +1,3 @@
+[server]
+includePaths = ["./include", "./src"]
+defines = ["SYNTHESIS", "DEBUG"]

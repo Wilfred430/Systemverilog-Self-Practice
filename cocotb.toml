@@ -1,0 +1,12 @@
+# 嘗試使用這個結構
+[cocotb]
+simulator = "icarus"
+toplevel_lang = "verilog"
+
+# Icarus Verilog 的編譯參數
+compile_args = ["-g2012"]
+
+# 有些舊版 kernel 可能會尋找 [tool.cocotb]，我們保留一個相容區塊 (可選)
+[tool.cocotb]
+simulator = "icarus"
+toplevel_lang = "verilog"
