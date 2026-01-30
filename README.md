@@ -12,8 +12,8 @@
   - 計數器設計 (Counter1000.sv, CountBCD.sv)
   - 邊緣檢測電路 (EdgeDetect.sv, EdgeCapture.sv)
   - 正反器設計 (DFF_gates.sv, JK_DFF.sv, Dualedge.sv)
-  - 算術邏輯單元 (Sign_add_overflow.sv)
-  - 時序控制器 (Cs450_timer.sv)
+  - 帶溢出檢測的有符號加法 (Sign_add_overflow.sv)
+  - 計時器控制器 (Cs450_timer.sv)
   - 其他基礎數位邏輯電路
 
 - **測試驗證環境**：使用 cocotb (Python-based testbench) 進行模擬驗證
@@ -36,8 +36,8 @@ This is a **SystemVerilog self-practice project** aimed at improving Verilog/Sys
   - Counter Designs (Counter1000.sv, CountBCD.sv)
   - Edge Detection Circuits (EdgeDetect.sv, EdgeCapture.sv)
   - Flip-Flop Designs (DFF_gates.sv, JK_DFF.sv, Dualedge.sv)
-  - Arithmetic Logic Units (Sign_add_overflow.sv)
-  - Timer Controllers (Cs450_timer.sv)
+  - Signed Addition with Overflow Detection (Sign_add_overflow.sv)
+  - Timer Controller (Cs450_timer.sv)
   - Other fundamental digital logic circuits
 
 - **Testing Environment**: Verification using cocotb (Python-based testbench)
