@@ -31,6 +31,7 @@ def test_counter():
     runner.test(
         hdl_toplevel="counter",      # Verilog 上層模組名
         test_module="test_counter",  # Python 測試檔名 (不含 .py)
+        waves=True
     )
 
 if __name__ == "__main__":

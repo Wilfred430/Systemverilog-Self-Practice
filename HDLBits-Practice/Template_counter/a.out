@@ -1,0 +1,54 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2009.vpi";
+S_0000026105e929a0 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0000026105e92b30 .scope module, "counter" "counter" 3 4;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "rst_n";
+    .port_info 2 /OUTPUT 4 "count";
+o0000026105ec6fd8 .functor BUFZ 1, C4<z>; HiZ drive
+v0000026105da96b0_0 .net "clk", 0 0, o0000026105ec6fd8;  0 drivers
+v0000026105da9b10_0 .var "count", 3 0;
+o0000026105ec7038 .functor BUFZ 1, C4<z>; HiZ drive
+v0000026105da9a70_0 .net "rst_n", 0 0, o0000026105ec7038;  0 drivers
+E_0000026105dab180/0 .event negedge, v0000026105da9a70_0;
+E_0000026105dab180/1 .event posedge, v0000026105da96b0_0;
+E_0000026105dab180 .event/or E_0000026105dab180/0, E_0000026105dab180/1;
+    .scope S_0000026105e92b30;
+T_0 ;
+    %wait E_0000026105dab180;
+    %load/vec4 v0000026105da9a70_0;
+    %nor/r;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.0, 8;
+    %pushi/vec4 0, 0, 4;
+    %assign/vec4 v0000026105da9b10_0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/vec4 v0000026105da9b10_0;
+    %addi 1, 0, 4;
+    %assign/vec4 v0000026105da9b10_0, 0;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_0000026105e92b30;
+T_1 ;
+    %vpi_call/w 3 26 "$dumpfile", "counter.vcd" {0 0 0};
+    %vpi_call/w 3 27 "$dumpvars", 32'sb00000000000000000000000000000000, S_0000026105e92b30 {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "-";
+    "d:\Systemverilog-Verilog-Learning\HDLBits-Practice\Template_counter\counter.sv";

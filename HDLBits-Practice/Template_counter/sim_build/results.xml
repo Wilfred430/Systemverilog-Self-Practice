@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1768469884" />
+    <testcase name="test_my_counter" classname="test_counter" file="D:\Systemverilog-Verilog-Learning\HDLBits-Practice\Template_counter\test_counter.py" lineno="6" time="0.004951000213623047" sim_time_ns="60.0" ratio_time="12118.76336318983" />
+  </testsuite>
+</testsuites>

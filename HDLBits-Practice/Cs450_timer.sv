@@ -12,12 +12,13 @@ module top_module(
   always_ff @(posedge clk)
   begin
     if(load)
+    begin
       tmp <= data;
+    end
     else if(tmp > 0)
       tmp <= tmp-1;
-    else if(tmp == 0)
-      tc <= 1;
   end
 
+  assign tc = (tmp == 0);
 
 endmodule

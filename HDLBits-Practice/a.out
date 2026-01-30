@@ -8,9 +8,9 @@
 :vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
 :vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
 :vpi_module "C:\iverilog\lib\ivl\v2009.vpi";
-S_000002d53fb32940 .scope package, "$unit" "$unit" 2 1;
+S_00000225b3ed2940 .scope package, "$unit" "$unit" 2 1;
  .timescale 0 0;
-S_000002d53fb32ad0 .scope module, "Cs450_timer" "Cs450_timer" 3 1;
+S_00000225b3ed2ad0 .scope module, "Cs450_timer" "Cs450_timer" 3 1;
  .timescale 0 0;
 # The file index is used to find the file name in the following table.
 :file_names 4;
