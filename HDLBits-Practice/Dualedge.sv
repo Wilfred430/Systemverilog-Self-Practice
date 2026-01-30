@@ -7,5 +7,10 @@ module top_module (
 
   reg q_pos,q_neg;
 
-  always @(posedge clk)
-  begin
+  always @(posedge clk) q_pos <= q;
+  always @(negedge clk) q_neg <= q;
+
+  assign q = (clk)? q_pos:q_neg;
+
+endmodule
+
