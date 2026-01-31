@@ -9,10 +9,23 @@ module top_module(
   begin
     if(load)
       q <= data;
-    case(ena)
-
-    endcase
-
+    else
+    begin
+      case(ena)
+        2'b01:
+        begin
+          q<={q[0],q[99:1]};
+        end
+        2'b10:
+        begin
+          q<={q[98:0],q[99]};
+        end
+        default :
+        begin
+          q<=q;
+        end
+      endcase
+    end
   end
 
 endmodule
