@@ -9,11 +9,11 @@ module top_module(
   always @(posedge clk)
   begin
     if (reset)
-      q <= 32'h1;   // 初始值不可全零
+      q <= 32'h1;
     else
     begin
-      q <= { q[0],              // 新的 MSB ← LSB 回饋
-             q[31],             // 依序移位
+      q <= { q[0],
+             q[31],
              q[30],
              q[29],
              q[28],
@@ -21,7 +21,7 @@ module top_module(
              q[26],
              q[25],
              q[24],
-             q[23],     // tap 在 x^22
+             q[23],
              q[22]^q[0],
              q[21],
              q[20],
@@ -42,8 +42,8 @@ module top_module(
              q[5],
              q[4],
              q[3],
-             q[2] ^ q[0],       // tap 在 x^2
-             q[1] ^ q[0]        // tap 在 x^1
+             q[2] ^ q[0],
+             q[1] ^ q[0]
            };
     end
   end
