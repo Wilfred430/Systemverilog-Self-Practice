@@ -1,3 +1,5 @@
+`timescale 1ns/1ps
+
 module top_module(
     input [3:0] in,
     output [2:0] out_both,
