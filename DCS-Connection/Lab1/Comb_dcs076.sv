@@ -36,7 +36,7 @@ output logic [7:0] out_num0, out_num1;
 
 always @(*) begin
 
- xnor_result = in_num0 ~^ in_num1;  
+ xnor_result = ~(in_num0 ^in_num1);  
  or_result   = in_num1 | in_num3;   
  and_result  = in_num2 & in_num0;   
  xor_result  = in_num3 ^ in_num2; 
@@ -49,7 +49,7 @@ small_1_num = (xnor_result > or_result) ? or_result : xnor_result;
  out_num0 = large_1_num + large_2_num;
  adder_result = small_1_num + small_2_num;
 
- out_num1 = adder_result ^ (adder_result >> 1);
+ out_num1 = adder_result ^ (adder_result >>> 1);
 
 end
 

@@ -42,6 +42,8 @@ logic [7:0] large_add, small_add, small_gray;
 // initial
 //================================================================
 initial begin
+	$dumpfile("comb_dcs076.vcd");
+	$dumpvars(0,PATTERN);
 	in_num0 = 'dx;
 	in_num1 = 'dx;
 	in_num2 = 'dx;
