@@ -69,6 +69,7 @@ initial begin
         repeat(1) @(negedge clk);
 		check_ans;
 		// Display with different colors for each pattern
+		#100;
 		case (patcount % 6)
 			0: $display("\033[0;32m========== PASS PATTERN NO.%3d ==========\033[m", patcount);  // Green
 			1: $display("\033[0;34m========== PASS PATTERN NO.%3d ==========\033[m", patcount);  // Blue
