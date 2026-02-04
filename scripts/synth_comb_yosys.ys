@@ -1,0 +1,14 @@
+# Yosys synthesis for Comb_dcs076
+# Uses sky130 standard cells from OpenROAD flow container
+
+read_verilog -sv /workspace/DCS-Connection/Lab1/Comb_dcs076.sv
+hierarchy -check -top Comb
+
+proc; opt; fsm; opt; memory; opt
+techmap; opt
+abc -liberty /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+clean
+check
+
+tee -o /workspace/reports/comb_stat.rpt stat -liberty /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+write_verilog -noattr /workspace/output/comb_synth.v

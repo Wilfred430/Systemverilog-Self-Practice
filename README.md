@@ -37,3 +37,5 @@ yosys -p "read_verilog -sv Comb_dcs076.sv; synth; write_verilog comb_synth.v"
 ```
 
 If you see errors about SystemVerilog keywords (for example logic), make sure -sv is present.
+
+personal access token :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
