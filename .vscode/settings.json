@@ -1,0 +1,16 @@
+{
+  "[systemverilog]": {
+    "editor.defaultFormatter": "chipsalliance.verible",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true
+  },
+  "[verilog]": {
+    "editor.defaultFormatter": "chipsalliance.verible",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true
+  },
+  "verible.verilog.formatterExecutable": "verible-verilog-format",
+  "verible.verilog.linterExecutable": "verible-verilog-lint",
+  "verible.verilog.linter": true,
+  "verible.verilog.linterConfig": ".verible-linter.toml"
+}
