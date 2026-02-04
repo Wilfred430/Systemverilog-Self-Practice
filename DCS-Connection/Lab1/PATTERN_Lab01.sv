@@ -26,6 +26,19 @@ real	CYCLE = `CYCLE_TIME;
 always	#(CYCLE/2.0) clk = ~clk;
 initial clk = 0;
 
+// In that, we connect comb to pattern.
+//================================================================
+// DUT Instantiation
+//================================================================
+Comb inst_comb(
+  .in_num0(in_num0),
+  .in_num1(in_num1),
+  .in_num2(in_num2),
+  .in_num3(in_num3),
+  .out_num0(out_num0),
+  .out_num1(out_num1)
+);
+
 //================================================================
 // parameters & integer
 //================================================================
@@ -55,7 +68,15 @@ initial begin
 		gen_ans;
         repeat(1) @(negedge clk);
 		check_ans;
-		$display("\033[0;32m========== PASS PATTERN NO.%3d ==========\033[m", patcount);
+		// Display with different colors for each pattern
+		case (patcount % 6)
+			0: $display("\033[0;32m========== PASS PATTERN NO.%3d ==========\033[m", patcount);  // Green
+			1: $display("\033[0;34m========== PASS PATTERN NO.%3d ==========\033[m", patcount);  // Blue
+			2: $display("\033[0;33m========== PASS PATTERN NO.%3d ==========\033[m", patcount);  // Yellow
+			3: $display("\033[0;35m========== PASS PATTERN NO.%3d ==========\033[m", patcount);  // Magenta
+			4: $display("\033[0;36m========== PASS PATTERN NO.%3d ==========\033[m", patcount);  // Cyan
+			5: $display("\033[0;31m========== PASS PATTERN NO.%3d ==========\033[m", patcount);  // Red
+		endcase
 	end
 
 	YOU_PASS_task;
@@ -99,10 +120,10 @@ task gen_ans; begin
 	small_add = small1 + small2; 
 	small_gray = small_add ^ {1'b0, small_add[7:1]}; 
 	
-	$display ("\033[0;34mInput: in_num0=%7b, in_num1=%7b, in_num2=%7b, in_num3=%7b\033[m", in_num0, in_num1, in_num2, in_num3);
-	$display ("\033[0;34mBitwise: A=%7b (%3d), B=%7b (%3d), C=%7b (%3d), D=%7b (%3d)\033[m", A, A, B, B, C, C, D, D);
-	$display ("\033[0;34mBitwise: Add1=%8b (%3d), Add2=%8b (%3d)\033[m", large_add, large_add, small_add, small_add);
-	$display ("\033[0;34mOutput: out_num0=%8b (%3d), out_num1=%8b (%3d)\033[m", large_add, large_add, small_gray, small_gray);
+	// $display ("\033[0;34mInput: in_num0=%7b, in_num1=%7b, in_num2=%7b, in_num3=%7b\033[m", in_num0, in_num1, in_num2, in_num3);
+	// $display ("\033[0;34mBitwise: A=%7b (%3d), B=%7b (%3d), C=%7b (%3d), D=%7b (%3d)\033[m", A, A, B, B, C, C, D, D);
+	// $display ("\033[0;34mBitwise: Add1=%8b (%3d), Add2=%8b (%3d)\033[m", large_add, large_add, small_add, small_add);
+	// $display ("\033[0;34mOutput: out_num0=%8b (%3d), out_num1=%8b (%3d)\033[m", large_add, large_add, small_gray, small_gray);
 end endtask
 
 task check_ans; begin
