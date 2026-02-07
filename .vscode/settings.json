@@ -12,5 +12,6 @@
   "verible.verilog.formatterExecutable": "verible-verilog-format",
   "verible.verilog.linterExecutable": "verible-verilog-lint",
   "verible.verilog.linter": true,
-  "verible.verilog.linterConfig": ".verible-linter.toml"
+  "verible.verilog.linterConfig": ".verible-linter.toml",
+  "claudeCodeChat.permissions.yoloMode": false
 }
